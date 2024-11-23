@@ -1,0 +1,59 @@
+<div class="product-details-container" *ngIf="product">
+    <!-- Product Image -->
+    <div class="product-image-section border border-warning py-5">
+      <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image" />
+      <button class="favorite-icon" [class.active]="isFavorite" (click)="toggleFavorite()">
+        <i class="bi" [ngClass]="isFavorite ? 'bi-heart-fill' : 'bi-heart'"></i>
+      </button>
+    </div>
+  
+    <!-- Product Information -->
+    <div class="product-info-section">
+      <div class="product-header">
+        <h1 class="product-name">{{ product.name }}</h1>
+        <p class="product-price">₹{{ product.price }}</p>
+      </div>
+  
+      <!-- Stock and Quantity -->
+      <div class="product-stock text-start">
+        <span *ngIf="product.inStock; else outOfStock" class="in-stock">In Stock</span>
+        <ng-template #outOfStock>
+          <span class="out-of-stock">Out of Stock</span>
+        </ng-template>
+      </div>
+
+      <!-- Quantity Selector -->
+      <div class="quantity-control">
+        <h4>Product Quantity</h4>
+        <div>
+            <button 
+              (click)="updateQuantity(product.id, selectedQuantity - 1)" 
+              [disabled]="selectedQuantity <= 1"
+            >-</button>
+            <span>{{ selectedQuantity }}</span>
+            <button 
+              (click)="updateQuantity(product.id, selectedQuantity + 1)"
+            >+</button>
+        </div>
+      </div>
+  
+      <!-- Product Description -->
+      <p class="product-description text-start">{{ isDescriptionTruncated ? product.description.slice(0, 100) + '...' : product.description }}
+        <a href="#" (click)="toggleDescription(); $event.preventDefault()">
+            {{ isDescriptionTruncated ? 'Read More' : 'Read Less' }}
+        </a>
+      </p>
+  
+      <!-- Add to Cart -->
+      <button 
+        class="add-to-cart-button" 
+        [disabled]="!product.inStock"
+        (click)="addToCart(product)"
+      >
+        Add to Cart
+      </button>
+    </div>
+  </div>
+  
+  
+  

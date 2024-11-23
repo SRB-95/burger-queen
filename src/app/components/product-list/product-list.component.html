@@ -1,0 +1,33 @@
+<div class="p-2 product-list-container">
+  <!-- Search Bar -->
+  <div class="search-bar-container">
+    <input
+      type="text"
+      class="font-size-16 rounded search-bar"
+      placeholder="Search for burgers..."
+      [(ngModel)]="searchQuery"
+      (keyup)="onSearch()"
+    />
+  </div>
+
+  <h4 class="py-3">Popular items</h4>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="alert alert-danger text-center">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Product List -->
+  <div class="product-list">
+    <div *ngFor="let product of filteredProducts" class="border rounded border-warning product-card">
+      <a [routerLink]="['/products', product.id]">
+        <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image p-3" />
+      </a>
+      <div class="product-details">
+        <h3>{{ product.name }}</h3>
+        <p>₹{{ product.price }}</p>
+        <button (click)="addToCart(product)" class="border-0 rounded add-to-cart" [disabled]="!product.inStock">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<header class="header border rounded-top">
+  <h1 class="logo">Burger Queen</h1>
+  <nav class="navigation">
+    <a routerLink="/favorites" class="footer-nav-item">
+      <i class="bi bi-bell"></i>
+      <span *ngIf="cartItemCount > 0" class="cart-badge">{{ cartItemCount }}</span>
+    </a>
+  </nav>
+</header>

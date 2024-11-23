@@ -1,0 +1,39 @@
+@import '../../../assets/saas/color-system.scss';
+
+.footer {
+    padding: 0.625rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  
+    .footer-navigation {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  
+      .footer-nav-item {
+        text-decoration: none;
+        color: $secondary_black;
+        font-size: 14px;
+        text-align: center;
+        flex: 1;
+  
+        i {
+          font-size: 1.5rem;
+        }
+  
+        .nav-label {
+          display: block;
+          font-size: 0.75rem;
+          margin-top: 0.25rem;
+        }
+  
+        &:hover {
+          color: $primary_yellow;
+        }
+      }
+    }
+  }
+  
