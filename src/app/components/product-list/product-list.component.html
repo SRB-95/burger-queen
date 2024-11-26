@@ -1,3 +1,9 @@
+<!-- Loader -->
+<div class="d-flex justify-content-center align-items-center h-100 min-height-vh-100" *ngIf="this.filteredProducts.length === 0">
+  <div class="spinner-border spinner-border-sm" role="status" id="authLoginProgressSpinner">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 <div class="p-2 product-list-container">
   <!-- Search Bar -->
   <div class="search-bar-container">
@@ -5,9 +11,7 @@
       type="text"
       class="font-size-16 rounded search-bar"
       placeholder="Search for burgers..."
-      [(ngModel)]="searchQuery"
-      (keyup)="onSearch()"
-    />
+      #searchInput/>
   </div>
 
   <h4 class="py-3">Popular items</h4>

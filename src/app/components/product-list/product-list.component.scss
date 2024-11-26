@@ -71,19 +71,20 @@
   }
 }
 
-/* Responsive Breakpoints */
+/* For tablets and smaller screens */
 @media (max-width: 768px) {
   .product-list {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium devices like tablets */
   }
 }
 
+/* For mobile screens */
 @media (max-width: 480px) {
   .product-list {
     grid-template-columns: repeat(2, 1fr); /* Two columns for small devices */
   }
 
   .product-card .product-image {
-    height: 100px; /* Adjust image size for mobile */
+    height: 100px; /* Adjust image size for mobile view */
   }
 }
